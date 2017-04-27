@@ -351,7 +351,6 @@ class MnistDataVis:
         return self._animpause
 
     def animate(self, compute_step, iterations, train_data_update_freq=20, test_data_update_freq=100, one_test_at_start=True, more_tests_at_start=False, save_movie=False):
-
         def animate_step(i):
             if (i == iterations // train_data_update_freq): #last iteration
                 compute_step(iterations, True, True)
@@ -363,7 +362,7 @@ class MnistDataVis:
                     if more_tests_at_start and n < test_data_update_freq: request_test_data_update = request_data_update
                     compute_step(n, request_test_data_update, request_data_update)
                     # makes the UI a little more responsive
-                    plt.pause(0.001)
+                    #plt.pause(0.001)
             if not self.is_paused():
                 return self._mpl_update_func()
 
